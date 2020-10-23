@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd ../data
+
+../bin/pgp -fes Bill -zbillms -u Bill < pgptest.plain > pgptext.pgp
+../bin/pgp -fdb -zbillms < pgptext.pgp > pgptest.dec

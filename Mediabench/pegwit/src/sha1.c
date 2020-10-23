@@ -12,11 +12,11 @@ A million repetitions of "a"
   34AA973C D4C4DAA4 F61EEB2B DBAD2731 6534016F
 */
 
-#if !defined(LITTLE_ENDIAN) && !defined(BIG_ENDIAN)
+#if !defined(FLITTLE_ENDIAN) && !defined(FBIG_ENDIAN)
   #if defined(_M_IX86) || defined(_M_I86) || defined(__alpha)
-    #define LITTLE_ENDIAN
+    #define FLITTLE_ENDIAN
   #else
-    #error "LITTLE_ENDIAN or BIG_ENDIAN must be defined"
+    #error "FLITTLE_ENDIAN or FBIG_ENDIAN must be defined"
 	#endif
 #endif
 
@@ -31,7 +31,7 @@ A million repetitions of "a"
 
 /* blk0() and blk() perform the initial expand. */
 /* I got the idea of expanding during the round function from SSLeay */
-#ifdef LITTLE_ENDIAN
+#ifdef FLITTLE_ENDIAN
 #define blk0(i) (block->l[i] = (rol(block->l[i],24)&0xFF00FF00) \
     |(rol(block->l[i],8)&0x00FF00FF))
 #else

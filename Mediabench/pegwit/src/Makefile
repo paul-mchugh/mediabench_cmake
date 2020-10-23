@@ -2,7 +2,7 @@
 #
 #
 CC = /export/ramoth4/bishop/simplescalar/bin/ssbig-na-sstrix-gcc -static
-CFLAGS = -O3 -DBIG_ENDIAN
+CFLAGS = -O3 -DFBIG_ENDIAN
 LDFLAGS = 
 
 MAIN = pegwit

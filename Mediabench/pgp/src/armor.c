@@ -313,8 +313,9 @@ copyline(FILE * in, FILE * out)
  * Passing in a buffer less than 2 characters long is not a terribly bright
  * idea.
  */
+#define getline ns_collision_fix_hack_getline
 static int
-getline(char *buf, int n, FILE * f)
+ns_collision_fix_hack_getline(char *buf, int n, FILE * f)
 {
     int state;
     char *p;

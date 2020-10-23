@@ -125,8 +125,6 @@ typedef ulong bits32;
 
 #define dputc(chr) dprintf1("%c", chr)
 #define dputs(str) dprintf1("%s", str)
-#define dprintf(str)\
-  fprintf(dstderr, str)
 #define dprintf1(str,arg1)\
   fprintf(dstderr, str, arg1)
 #define dprintf2(str,arg1,arg2)\

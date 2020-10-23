@@ -27,11 +27,12 @@
 # include <sp/shorten/shorten.h>
 
 /* From: fred@masterd.fdn.org (Frederic SAVOIR) */
-#ifdef __WATCOMC__
+/*#ifdef __WATCOMC__
 extern volatile int errno;
 #else
 extern int errno;
-#endif
+#endif*/
+#include <errno.h>
 
 extern char *argv0;
 extern char *filenameo;

@@ -1,0 +1,3 @@
+../demos/mipmap >! out1
+../demos/osdemo >! out2
+../demos/texgen >! out3

@@ -692,11 +692,11 @@ void burn_stack(void)
   memset( x, 0, sizeof(x) );
 }
 
-#if !defined(LITTLE_ENDIAN) && !defined(BIG_ENDIAN)
+#if !defined(FLITTLE_ENDIAN) && !defined(FBIG_ENDIAN)
   #if defined(_M_IX86) || defined(_M_I86) || defined(__alpha)
-    #define LITTLE_ENDIAN
+    #define FLITTLE_ENDIAN
   #else
-    #error "LITTLE_ENDIAN or BIG_ENDIAN must be defined"
+    #error "FLITTLE_ENDIAN or FBIG_ENDIAN must be defined"
 	#endif
 #endif
 
@@ -710,16 +710,16 @@ int main( int argc, char * argv[] )
   char openKey[3] = "rb";
 
   static byte x[4] = {1,2,3,4};
-	#ifdef LITTLE_ENDIAN
+	#ifdef FLITTLE_ENDIAN
     if ( *(word32*)x != 0x04030201 )
   	{
-	    fputs( "Porting error : need to define BIG_ENDIAN instead of LITTLE_ENDIAN\n", stderr );
+	    fputs( "Porting error : need to define FBIG_ENDIAN instead of FLITTLE_ENDIAN\n", stderr );
 			return 1;
     }
 	#else
 	  if ( *(word32*)x != 0x01020304 )
   	{
-	    fputs( "Porting error : need to define LITTLE_ENDIAN instead of BIG_ENDIAN\n", stderr );
+	    fputs( "Porting error : need to define FLITTLE_ENDIAN instead of FBIG_ENDIAN\n", stderr );
 			return 1;
     }
   #endif

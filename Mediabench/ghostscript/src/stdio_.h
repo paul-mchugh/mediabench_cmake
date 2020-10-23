@@ -23,6 +23,8 @@
 /* any file that includes sys/types.h. */
 #include "std.h"
 #include <stdio.h>
+#define dprintf(str)\
+  fprintf(dstderr, str)
 
 #ifdef VMS
 /* VMS doesn't have the unlink system call.  Use delete instead. */

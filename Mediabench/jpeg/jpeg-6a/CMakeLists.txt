@@ -28,3 +28,6 @@ add_executable(ansi2knr ansi2knr.c)
 target_link_libraries(cjpeg jpeg)
 target_link_libraries(djpeg jpeg)
 target_link_libraries(jpegtran jpeg)
+
+install(TARGETS cjpeg djpeg jpegtran rdjpgcom wrjpgcom ansi2knr
+	RUNTIME DESTINATION jpeg/bin)

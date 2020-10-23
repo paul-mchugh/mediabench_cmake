@@ -5,3 +5,6 @@ add_executable(texgen texgen.c)
 target_link_libraries(osdemo Mesaaux MesaGLU MesaGL m)
 target_link_libraries(mipmap Mesaaux MesaGLU MesaGL m)
 target_link_libraries(texgen Mesaaux MesaGLU MesaGL m)
+
+install(TARGETS osdemo mipmap texgen
+	RUNTIME DESTINATION mesa/bin)

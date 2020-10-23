@@ -1,6 +1,6 @@
 # Also in MiBench
-add_executable(mb_rawcaudio rawcaudio.c adpcm.c)
-add_executable(mb_rawdaudio rawdaudio.c adpcm.c)
+add_executable(rawcaudio rawcaudio.c adpcm.c)
+add_executable(rawdaudio rawdaudio.c adpcm.c)
 
 add_executable(timing    timing.c    adpcm.c)
 
@@ -25,3 +25,6 @@ add_executable(timing    timing.c    adpcm.c)
 #         output_small.pcm
 #         ${PROJECT_SOURCE_DIR}/MiBench/telecomm/adpcm/data/ref_le_small.pcm)
 #endif()
+
+install(TARGETS rawcaudio rawdaudio timing
+	RUNTIME DESTINATION adpcm/bin)

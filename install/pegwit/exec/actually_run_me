@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ../data
+../bin/pegwit -e my.pub pgptest.plain pegwit.enc < encryption_junk
+../bin/pegwit -d pegwit.enc pegwit.dec < my.sec

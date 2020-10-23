@@ -14,3 +14,5 @@ add_executable(lsqsolve lsqsolve.c mul_mdmd_md.c)
 target_link_libraries(rasta sp util m)
 target_link_libraries(lsqsolve m)
 
+install(TARGETS rasta lsqsolve
+	RUNTIME DESTINATION rasta/bin)
