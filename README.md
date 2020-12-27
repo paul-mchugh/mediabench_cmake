@@ -22,3 +22,7 @@ The auto cross compile and transfer scripts assume that you copy and rename the 
 If you put the install elsewhere make sure to edit `mediabenchDir` on line 5 of `compile_exe_pack.sh` AND 
 the variable `mediabenchDir` on line 7 of `run_exe_pack.sh` to reflect the location of the install on the target machine.
 
+## Issues with some benchmarks
+
+On the 64-bit ARM machines we are using for our research pegwit and ghoastscript crash you attempt to run them.  The pgp benchmark gets caught in an infinite loop.  
+I suspect thtat these issues are caused by our use of a 64 bit platform, whereas the code is from the late 90s and likely only supported 32 bit machines.
