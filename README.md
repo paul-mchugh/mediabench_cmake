@@ -1,50 +1,24 @@
-# patmos-benchmarks
-===================
+# mediabench_cmake
 
-A collection of benchmarks and tests for the Patmos processor and compiler.
+A version of the MediaBench benchmark that uses CMake for building instead of MediaBench's makefiles. Some CMake files are from the code in https://github.com/t-crest/patmos-benchmarks
 
-### 1. Requirements
+## Usage
 
-- LLVM toolchain for Patmos (or either Sparc or PowerPc)
-  *  https://github.com/t-crest/patmos-llvm
-  *  https://github.com/t-crest/patmos-clang
-  *  https://github.com/t-crest/patmos-compiler-rt
-  *  https://github.com/t-crest/patmos-newlib
-  *  https://github.com/t-crest/patmos-gold
-  *  http://www.llvm.org/
-
-- Absint a3 tools (optional)
-  *  http://www.absint.com/a3/index.htm
-
-### 2. Configure, build and run tests
-
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/patmos-clang-toolchain.cmake -DENABLE_TESTING=true
-    make
-    make test # (also via ctest, see ctest --help)
+This repo contains scripts used for cross-compiling and running the benchmarks with our scheduler.
+You may need to modify the scripts `compile_exe_pack.sh` and `install/run_exe_pack.sh` depending on the target platform or the options you want to use.
 
 
-For a list of pre-defined compiler/processor toolchain configurations see the
-cmake directory (currently leon3-clang, mpc5554-clang, patmos-clang). To chose
-one of them use:
+### Usage compile_exe_pack.sh:
 
-    cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/<processor>-clang-toolchain.cmake
+`./compile_exe_pack.sh [iterations count (default 1000)] [yes|no (transfer to target and run,default no)]`
 
+## Installation 
 
-Additional search paths can be provided using the `-DCMAKE_PROGRAM_PATH=<path>`
-option.
+Copy the entire directory `install` to the target machine.
+Change `hostProjectDir` on line 10 of `compile_exe_pack.sh` to be the location you cloned this repo to.
 
-List of CMake variables of interest:
--   `CMAKE_TOOLCHAIN_FILE` ... toolchain to use
--   `ENABLE_TESTING`       ... enable tests
--   `ENABLE_CTORTURE`      ... enable gcc.c-torture (build time doubles)
--   `PLATIN_ENABLE_WCET`   ... enable WCET tests (currently patmos only)
--   `PLATIN_ENABLE_AIT`    ... enable WCET tests using absint's aiT tool (patmos only, requires a3)
--   `CONFIG_PML`           ... architecture configuration file (patmos only)
+Put the `user@host` you use to access the target machine over ssh as the value of the variable `targetMachine` on line 4 of `compile_exe_pack.sh`
+The auto cross compile and transfer scripts assume that you copy and rename the install dir to ~/mediabench on the target.
+If you put the install elsewhere make sure to edit `mediabenchDir` on line 5 of `compile_exe_pack.sh` AND 
+the variable `mediabenchDir` on line 7 of `run_exe_pack.sh` to reflect the location of the install on the target machine.
 
-#### Patmos configuration
-
-Some Patmos-specific options (e.g. method and stack cache related) for the Clang/LLVM compiler, the simulator (pasim) and WCET tool (platin) are controlled through architecture configuration files in YAML format, see the `config-*.pml` files in `scripts/`.
-
-Have fun!

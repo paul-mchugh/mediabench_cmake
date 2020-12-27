@@ -1,0 +1,1 @@
+Git can't track empty directories, but I want these directories where the execuables are put to be tracked, so I put these hiddenfiles in the bindirs

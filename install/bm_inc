@@ -1,0 +1,10 @@
+
+#common script data for the benchmark scripts
+icount=${ITER_OVERRIDE:-1000}
+ITERS=$(seq $icount)
+
+#utility for benchmarks known to not work
+nobm()
+{
+	echo "No benchmarks to execute in:$(pwd)"
+}

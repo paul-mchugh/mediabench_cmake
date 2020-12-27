@@ -2,3 +2,16 @@
 build*/
 .*.swp
 nonfree/
+log/
+
+work_dir/*
+!work_dir/README.md
+
+ini_profiles/*
+!ini_profiles/*ini
+
+install/*/bin/*
+!install/*/bin/.bindir.txt
+
+opt_sched_cfg/sched.ini
+
